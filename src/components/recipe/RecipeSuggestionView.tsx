@@ -34,13 +34,13 @@ export default function RecipeSuggestionView({ onSelectRecipe }: RecipeSuggestio
       />
 
       {isGenerating && (
-        <p className="font-pixel text-[18px] text-center text-pixel-text animate-pulse">
+        <p className="text-[18px] text-center text-pixel-text animate-pulse">
           🔥 맛있는 레시피를 찾고 있어요...
         </p>
       )}
 
       {error && (
-        <p className="font-pixel text-[16px] text-pixel-red text-center mb-4">{error}</p>
+        <p className="text-[16px] text-pixel-red text-center mb-4">{error}</p>
       )}
 
       <RecipeCardList recipes={recipes} onSelectRecipe={handleSelectRecipe} />

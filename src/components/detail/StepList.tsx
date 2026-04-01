@@ -22,7 +22,7 @@ export default function StepList({ steps }: StepListProps) {
 
   return (
     <div className="bg-pixel-light border-4 border-pixel-border p-4">
-      <h3 className="font-pixel text-[17px] text-pixel-text mb-3">🍳 조리 순서</h3>
+      <h3 className="text-[17px] text-pixel-text mb-3">🍳 조리 순서</h3>
       <ol className="space-y-3">
         {steps.map((step) => {
           const isChecked = checkedSteps.has(step.order);
@@ -35,15 +35,15 @@ export default function StepList({ steps }: StepListProps) {
                 ${isChecked ? 'bg-pixel-green/10 border-pixel-green/50' : 'bg-pixel-bg'}
               `}
             >
-              <span className={`font-pixel text-[17px] ${isChecked ? 'text-pixel-green' : 'text-pixel-gold'} shrink-0`}>
+              <span className={`text-[17px] ${isChecked ? 'text-pixel-green' : 'text-pixel-gold'} shrink-0`}>
                 {isChecked ? '✅' : `${step.order}.`}
               </span>
               <div>
-                <p className={`font-pixel text-[16px] leading-relaxed ${isChecked ? 'text-pixel-text/50 line-through' : 'text-pixel-text'}`}>
+                <p className={`text-[16px] leading-relaxed ${isChecked ? 'text-pixel-text/50 line-through' : 'text-pixel-text'}`}>
                   {step.instruction}
                 </p>
                 {step.tip && (
-                  <p className="font-pixel text-[15px] text-pixel-gold mt-1">
+                  <p className="text-[15px] text-pixel-gold mt-1">
                     💡 {step.tip}
                   </p>
                 )}

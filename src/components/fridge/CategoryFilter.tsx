@@ -12,7 +12,7 @@ export default function CategoryFilter({ selected, onSelect }: CategoryFilterPro
       <button
         onClick={() => onSelect('전체')}
         className={`
-          font-pixel text-[16px] px-2 py-1 border-2 border-pixel-border cursor-pointer
+          text-[16px] px-2 py-1 border-2 border-pixel-border cursor-pointer
           ${selected === '전체' ? 'bg-pixel-gold text-pixel-text' : 'bg-pixel-light text-pixel-text/70'}
         `}
       >
@@ -23,7 +23,7 @@ export default function CategoryFilter({ selected, onSelect }: CategoryFilterPro
           key={cat.name}
           onClick={() => onSelect(cat.name)}
           className={`
-            font-pixel text-[16px] px-2 py-1 border-2 border-pixel-border cursor-pointer
+            text-[16px] px-2 py-1 border-2 border-pixel-border cursor-pointer
             ${selected === cat.name ? 'bg-pixel-gold text-pixel-text' : 'bg-pixel-light text-pixel-text/70'}
           `}
         >

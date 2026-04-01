@@ -32,7 +32,7 @@ function App() {
   if (authState === 'loading') {
     return (
       <div className="min-h-screen bg-pixel-bg flex items-center justify-center">
-        <p className="font-pixel text-[18px] text-pixel-text">로딩 중...</p>
+        <p className="text-[18px] text-pixel-text">로딩 중...</p>
       </div>
     );
   }

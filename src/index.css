@@ -31,7 +31,7 @@
 }
 
 body {
-  font-family: "Press Start 2P", cursive;
+  font-family: system-ui, -apple-system, sans-serif;
   background-color: #F5E6C8;
   color: #3E2723;
   margin: 0;

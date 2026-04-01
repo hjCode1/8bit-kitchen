@@ -25,7 +25,7 @@ export default function TabNav({ activeTab, onTabChange, hasSelectedRecipe }: Ta
             onClick={() => !isDisabled && onTabChange(tab.key)}
             disabled={isDisabled}
             className={`
-              font-pixel text-[16px] px-3 py-2 cursor-pointer border-r-4 border-pixel-border last:border-r-0
+              text-[16px] px-3 py-2 cursor-pointer border-r-4 border-pixel-border last:border-r-0
               ${isActive ? 'bg-pixel-light text-pixel-text border-b-4 border-b-pixel-light -mb-[4px]' : 'bg-pixel-panel text-pixel-text/70 hover:bg-pixel-panel/80'}
               ${isDisabled ? 'opacity-30 cursor-not-allowed' : ''}
             `}

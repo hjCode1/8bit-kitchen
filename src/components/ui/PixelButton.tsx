@@ -24,7 +24,7 @@ export default function PixelButton({
   return (
     <button
       className={`
-        font-pixel ${sizeClass} border-4 ${VARIANT_STYLES[variant]}
+        ${sizeClass} border-4 ${VARIANT_STYLES[variant]}
         shadow-pixel cursor-pointer select-none
         active:translate-x-[2px] active:translate-y-[2px] active:shadow-none
         disabled:opacity-50 disabled:cursor-not-allowed disabled:active:translate-x-0 disabled:active:translate-y-0 disabled:active:shadow-pixel

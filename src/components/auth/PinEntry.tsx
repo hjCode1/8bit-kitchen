@@ -65,9 +65,9 @@ export default function PinEntry({ onSuccess }: PinEntryProps) {
   return (
     <div className="min-h-screen bg-pixel-bg flex items-center justify-center">
       <div className="bg-pixel-light border-4 border-pixel-border shadow-pixel p-8 text-center">
-        <h1 className="font-pixel text-lg text-pixel-text mb-2">8 B I T</h1>
-        <h2 className="font-pixel text-base text-pixel-text mb-6">K I T C H E N</h2>
-        <p className="font-pixel text-[16px] text-pixel-text mb-4">PIN을 입력하세요</p>
+        <h1 className="text-lg text-pixel-text mb-2">8 B I T</h1>
+        <h2 className="text-base text-pixel-text mb-6">K I T C H E N</h2>
+        <p className="text-[16px] text-pixel-text mb-4">PIN을 입력하세요</p>
 
         <div className="flex gap-2 justify-center mb-4">
           {pin.map((digit, i) => (
@@ -81,13 +81,13 @@ export default function PinEntry({ onSuccess }: PinEntryProps) {
               onChange={(e) => handleChange(i, e.target.value)}
               onKeyDown={(e) => handleKeyDown(i, e)}
               disabled={locked}
-              className="w-12 h-12 text-center font-pixel text-2xl bg-pixel-bg border-4 border-pixel-border outline-none focus:border-pixel-gold"
+              className="w-12 h-12 text-center text-2xl bg-pixel-bg border-4 border-pixel-border outline-none focus:border-pixel-gold"
             />
           ))}
         </div>
 
         {error && (
-          <p className="font-pixel text-[16px] text-pixel-red mb-3">{error}</p>
+          <p className="text-[16px] text-pixel-red mb-3">{error}</p>
         )}
 
         <PixelButton onClick={handleSubmit} disabled={locked || pin.join('').length !== 4}>

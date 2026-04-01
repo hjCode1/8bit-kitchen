@@ -10,13 +10,13 @@ export default function FridgeView() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   if (isLoading) {
-    return <p className="font-pixel text-[18px] text-center py-8">재료를 불러오는 중...</p>;
+    return <p className="text-[18px] text-center py-8">재료를 불러오는 중...</p>;
   }
 
   return (
     <div>
       {error && (
-        <p className="font-pixel text-[16px] text-pixel-red text-center mb-2">{error}</p>
+        <p className="text-[16px] text-pixel-red text-center mb-2">{error}</p>
       )}
 
       <CategoryFilter selected={selectedCategory} onSelect={setCategory} />
