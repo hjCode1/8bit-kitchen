@@ -12,7 +12,7 @@ export default function IngredientSlot({ ingredient, onRemove }: IngredientSlotP
   if (!ingredient) {
     return (
       <div className="w-full aspect-square border-2 border-dashed border-pixel-border/30 flex items-center justify-center">
-        <span className="text-pixel-border/20 text-lg">+</span>
+        <span className="text-pixel-border/20 text-2xl">+</span>
       </div>
     );
   }
@@ -20,17 +20,17 @@ export default function IngredientSlot({ ingredient, onRemove }: IngredientSlotP
   if (showConfirm) {
     return (
       <div className="w-full aspect-square border-2 border-pixel-red bg-pixel-red/10 flex flex-col items-center justify-center gap-1 p-1">
-        <p className="font-pixel text-[6px] text-pixel-red text-center">삭제?</p>
+        <p className="font-pixel text-[15px] text-pixel-red text-center">삭제?</p>
         <div className="flex gap-1">
           <button
             onClick={() => onRemove?.(ingredient.id)}
-            className="font-pixel text-[6px] bg-pixel-red text-pixel-light px-1 cursor-pointer border border-pixel-border"
+            className="font-pixel text-[15px] bg-pixel-red text-pixel-light px-1 cursor-pointer border border-pixel-border"
           >
             예
           </button>
           <button
             onClick={() => setShowConfirm(false)}
-            className="font-pixel text-[6px] bg-pixel-light text-pixel-text px-1 cursor-pointer border border-pixel-border"
+            className="font-pixel text-[15px] bg-pixel-light text-pixel-text px-1 cursor-pointer border border-pixel-border"
           >
             아니오
           </button>
@@ -44,12 +44,12 @@ export default function IngredientSlot({ ingredient, onRemove }: IngredientSlotP
       onClick={() => setShowConfirm(true)}
       className="w-full aspect-square border-2 border-pixel-border bg-pixel-light flex flex-col items-center justify-center cursor-pointer hover:bg-pixel-panel/30 p-1"
     >
-      <span className="text-xl leading-none">{ingredient.emoji || '📦'}</span>
-      <span className="font-pixel text-[6px] text-pixel-text mt-1 text-center leading-tight truncate w-full">
+      <span className="text-3xl leading-none">{ingredient.emoji || '📦'}</span>
+      <span className="font-pixel text-[15px] text-pixel-text mt-1 text-center leading-tight truncate w-full">
         {ingredient.name}
       </span>
       {ingredient.quantity && (
-        <span className="font-pixel text-[5px] text-pixel-text/60 mt-0.5">
+        <span className="font-pixel text-[15px] text-pixel-text/60 mt-0.5">
           {ingredient.quantity}
         </span>
       )}

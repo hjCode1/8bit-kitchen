@@ -49,14 +49,14 @@ export default function AddIngredientModal({ isOpen, onClose, onAdd }: AddIngred
   return (
     <PixelModal isOpen={isOpen} onClose={handleClose} title="재료 추가">
       <div className="mb-3">
-        <p className="font-pixel text-[8px] text-pixel-text mb-1">카테고리</p>
+        <p className="font-pixel text-[16px] text-pixel-text mb-1">카테고리</p>
         <div className="flex flex-wrap gap-1">
           {CATEGORIES.map((cat) => (
             <button
               key={cat.name}
               onClick={() => { setCategory(cat.name); setSelectedPreset(null); }}
               className={`
-                font-pixel text-[7px] px-2 py-1 border-2 border-pixel-border cursor-pointer
+                font-pixel text-[15px] px-2 py-1 border-2 border-pixel-border cursor-pointer
                 ${category === cat.name ? 'bg-pixel-gold' : 'bg-pixel-light'}
               `}
             >
@@ -67,7 +67,7 @@ export default function AddIngredientModal({ isOpen, onClose, onAdd }: AddIngred
       </div>
 
       <div className="mb-3">
-        <p className="font-pixel text-[8px] text-pixel-text mb-1">재료 선택</p>
+        <p className="font-pixel text-[16px] text-pixel-text mb-1">재료 선택</p>
         <div className="max-h-32 overflow-y-auto border-2 border-pixel-border bg-pixel-bg p-1">
           <div className="flex flex-wrap gap-1">
             {presets.map((preset) => (
@@ -75,7 +75,7 @@ export default function AddIngredientModal({ isOpen, onClose, onAdd }: AddIngred
                 key={preset.name}
                 onClick={() => setSelectedPreset(preset.name)}
                 className={`
-                  font-pixel text-[7px] px-2 py-1 border border-pixel-border cursor-pointer
+                  font-pixel text-[15px] px-2 py-1 border border-pixel-border cursor-pointer
                   ${selectedPreset === preset.name ? 'bg-pixel-gold' : 'bg-pixel-light'}
                 `}
               >
@@ -85,7 +85,7 @@ export default function AddIngredientModal({ isOpen, onClose, onAdd }: AddIngred
             <button
               onClick={() => setSelectedPreset('__custom__')}
               className={`
-                font-pixel text-[7px] px-2 py-1 border border-pixel-border cursor-pointer
+                font-pixel text-[15px] px-2 py-1 border border-pixel-border cursor-pointer
                 ${isCustom ? 'bg-pixel-gold' : 'bg-pixel-light'}
               `}
             >

@@ -19,7 +19,7 @@ export default function PixelButton({
   disabled,
   ...props
 }: PixelButtonProps) {
-  const sizeClass = size === 'sm' ? 'px-2 py-1 text-[8px]' : 'px-4 py-2 text-[10px]';
+  const sizeClass = size === 'sm' ? 'px-2 py-1 text-[15px]' : 'px-4 py-2 text-[18px]';
 
   return (
     <button

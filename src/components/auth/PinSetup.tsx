@@ -58,12 +58,12 @@ export default function PinSetup({ onComplete }: PinSetupProps) {
   return (
     <div className="min-h-screen bg-pixel-bg flex items-center justify-center">
       <div className="bg-pixel-light border-4 border-pixel-border shadow-pixel p-8 text-center">
-        <h1 className="font-pixel text-sm text-pixel-text mb-2">8 B I T</h1>
-        <h2 className="font-pixel text-xs text-pixel-text mb-6">K I T C H E N</h2>
-        <p className="font-pixel text-[8px] text-pixel-text mb-1">
+        <h1 className="font-pixel text-lg text-pixel-text mb-2">8 B I T</h1>
+        <h2 className="font-pixel text-base text-pixel-text mb-6">K I T C H E N</h2>
+        <p className="font-pixel text-[16px] text-pixel-text mb-1">
           {step === 'create' ? '새 PIN을 설정하세요' : 'PIN을 다시 입력하세요'}
         </p>
-        <p className="font-pixel text-[8px] text-pixel-text/50 mb-4">
+        <p className="font-pixel text-[16px] text-pixel-text/50 mb-4">
           (숫자 4자리)
         </p>
 
@@ -78,13 +78,13 @@ export default function PinSetup({ onComplete }: PinSetupProps) {
               value={digit}
               onChange={(e) => handleChange(i, e.target.value)}
               onKeyDown={(e) => handleKeyDown(i, e)}
-              className="w-12 h-12 text-center font-pixel text-lg bg-pixel-bg border-4 border-pixel-border outline-none focus:border-pixel-gold"
+              className="w-12 h-12 text-center font-pixel text-2xl bg-pixel-bg border-4 border-pixel-border outline-none focus:border-pixel-gold"
             />
           ))}
         </div>
 
         {error && (
-          <p className="font-pixel text-[8px] text-pixel-red mb-3">{error}</p>
+          <p className="font-pixel text-[16px] text-pixel-red mb-3">{error}</p>
         )}
 
         <PixelButton onClick={handleSubmit} disabled={pin.join('').length !== 4}>
