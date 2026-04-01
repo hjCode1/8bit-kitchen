@@ -11,7 +11,7 @@ export default function IngredientSlot({ ingredient, onRemove }: IngredientSlotP
 
   if (!ingredient) {
     return (
-      <div className="w-full aspect-square border-2 border-dashed border-pixel-border/30 flex items-center justify-center">
+      <div className="w-full h-24 border-2 border-dashed border-pixel-border/30 flex items-center justify-center">
         <span className="text-pixel-border/20 text-2xl">+</span>
       </div>
     );
@@ -19,7 +19,7 @@ export default function IngredientSlot({ ingredient, onRemove }: IngredientSlotP
 
   if (showConfirm) {
     return (
-      <div className="w-full aspect-square border-2 border-pixel-red bg-pixel-red/10 flex flex-col items-center justify-center gap-1 p-1">
+      <div className="w-full h-24 border-2 border-pixel-red bg-pixel-red/10 flex flex-col items-center justify-center gap-1 p-1">
         <p className="text-[15px] text-pixel-red text-center">삭제?</p>
         <div className="flex gap-1">
           <button
@@ -42,14 +42,14 @@ export default function IngredientSlot({ ingredient, onRemove }: IngredientSlotP
   return (
     <div
       onClick={() => setShowConfirm(true)}
-      className="w-full aspect-square border-2 border-pixel-border bg-pixel-light flex flex-col items-center justify-center cursor-pointer hover:bg-pixel-panel/30 p-1"
+      className="w-full h-24 border-2 border-pixel-border bg-pixel-light flex flex-col items-center justify-center cursor-pointer hover:bg-pixel-panel/30 p-1 overflow-hidden"
     >
-      <span className="text-3xl leading-none">{ingredient.emoji || '📦'}</span>
-      <span className="text-[15px] text-pixel-text mt-1 text-center leading-tight truncate w-full">
+      <span className="text-2xl leading-none">{ingredient.emoji || '📦'}</span>
+      <span className="text-[13px] text-pixel-text mt-1 text-center leading-tight truncate w-full">
         {ingredient.name}
       </span>
       {ingredient.quantity && (
-        <span className="text-[15px] text-pixel-text/60 mt-0.5">
+        <span className="text-[11px] text-pixel-text/60 mt-0.5 truncate w-full text-center">
           {ingredient.quantity}
         </span>
       )}
