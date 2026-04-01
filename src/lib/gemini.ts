@@ -55,7 +55,7 @@ export async function generateRecipes(ingredients: string[]): Promise<GeneratedR
   const prompt = buildRecipePrompt(ingredients);
 
   const response = await ai.models.generateContent({
-    model: 'gemini-2.0-flash',
+    model: 'gemini-2.5-flash',
     contents: prompt,
   });
 
@@ -66,7 +66,7 @@ export async function generateRecipes(ingredients: string[]): Promise<GeneratedR
     return parseRecipeResponse(text);
   } catch {
     const retryResponse = await ai.models.generateContent({
-      model: 'gemini-2.0-flash',
+      model: 'gemini-2.5-flash',
       contents: prompt + '\n\n반드시 유효한 JSON 배열만 응답하세요. 마크다운이나 다른 텍스트를 포함하지 마세요.',
     });
 
