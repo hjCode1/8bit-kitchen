@@ -21,7 +21,7 @@ export async function setupPin(pin: string): Promise<void> {
   const hash = await hashPin(pin);
   const { error } = await supabase
     .from('app_config')
-    .upsert({ key: 'pin_hash', value: hash });
+    .upsert({ key: 'pin_hash', value: hash } as Record<string, unknown>);
   if (error) throw error;
 }
 
@@ -32,5 +32,5 @@ export async function verifyPin(pin: string): Promise<boolean> {
     .select('value')
     .eq('key', 'pin_hash')
     .single();
-  return data?.value === hash;
+  return (data as { value: string } | null)?.value === hash;
 }

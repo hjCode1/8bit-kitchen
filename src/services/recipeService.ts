@@ -12,12 +12,12 @@ export async function saveRecipe(recipe: GeneratedRecipe): Promise<Recipe> {
       cook_time: recipe.cook_time,
       difficulty: recipe.difficulty,
       servings: recipe.servings,
-    })
+    } as Record<string, unknown>)
     .select()
     .single();
 
   if (error) throw error;
-  return data;
+  return data as Recipe;
 }
 
 export async function fetchRecipeHistory(): Promise<Recipe[]> {
@@ -28,5 +28,5 @@ export async function fetchRecipeHistory(): Promise<Recipe[]> {
     .limit(20);
 
   if (error) throw error;
-  return data;
+  return data as Recipe[];
 }

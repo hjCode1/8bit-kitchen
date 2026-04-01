@@ -8,7 +8,7 @@ export async function fetchIngredients(): Promise<Ingredient[]> {
     .order('created_at', { ascending: false });
 
   if (error) throw error;
-  return data;
+  return data as Ingredient[];
 }
 
 export async function addIngredient(
@@ -16,12 +16,12 @@ export async function addIngredient(
 ): Promise<Ingredient> {
   const { data, error } = await supabase
     .from('ingredients')
-    .insert(ingredient)
+    .insert(ingredient as Record<string, unknown>)
     .select()
     .single();
 
   if (error) throw error;
-  return data;
+  return data as Ingredient;
 }
 
 export async function removeIngredient(id: string): Promise<void> {
