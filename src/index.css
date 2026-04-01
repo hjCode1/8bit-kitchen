@@ -15,6 +15,20 @@
 
   --shadow-pixel: 4px 4px 0px 0px #8B5E3C;
   --shadow-pixel-sm: 2px 2px 0px 0px #8B5E3C;
+
+  --color-kitchen-wall: #B8D4A0;
+  --color-kitchen-floor: #8B6914;
+  --color-kitchen-floor-line: #7A5A10;
+  --color-fridge-body: #A8C4D4;
+  --color-fridge-dark: #4A6670;
+  --color-fridge-shadow: #3A5560;
+  --color-fridge-freezer: #8EB0C0;
+  --color-counter-top: #D4A574;
+  --color-counter-body: #B07840;
+  --color-sink: #8A8A8A;
+  --color-oven-body: #F0E0C0;
+  --color-oven-border: #8B6914;
+  --color-cabinet: #C49A6C;
 }
 
 @font-face {
@@ -23,6 +37,33 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes ovenGlow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes steam {
+  0% { transform: translateY(0) scaleX(1); opacity: 0.6; }
+  50% { transform: translateY(-8px) scaleX(1.2); opacity: 0.3; }
+  100% { transform: translateY(-16px) scaleX(0.8); opacity: 0; }
+}
+
+@keyframes itemPopIn {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes itemFadeOut {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.5); opacity: 0; }
 }
 
 * {

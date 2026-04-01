@@ -47,6 +47,8 @@ export interface GeneratedRecipe {
 
 export type TabType = 'fridge' | 'recipes' | 'detail';
 
+export type ModalView = 'fridge' | 'recipes' | 'detail' | null;
+
 export interface Database {
   public: {
     Tables: {

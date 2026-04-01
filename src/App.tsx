@@ -1,18 +1,19 @@
 import { useState, useEffect } from 'react';
-import type { TabType, Recipe } from './types';
+import type { ModalView, Recipe } from './types';
 import { isPinSet } from './lib/pinAuth';
 import { FridgeProvider } from './context/FridgeContext';
 import { RecipeProvider } from './context/RecipeContext';
 import Header from './components/layout/Header';
-import TabNav from './components/layout/TabNav';
 import PinEntry from './components/auth/PinEntry';
 import PinSetup from './components/auth/PinSetup';
+import KitchenScene from './components/kitchen/KitchenScene';
+import KitchenModal from './components/kitchen/KitchenModal';
 import FridgeView from './components/fridge/FridgeView';
 import RecipeSuggestionView from './components/recipe/RecipeSuggestionView';
 import RecipeDetailView from './components/detail/RecipeDetailView';
 
 function App() {
-  const [activeTab, setActiveTab] = useState<TabType>('fridge');
+  const [activeModal, setActiveModal] = useState<ModalView>(null);
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [authState, setAuthState] = useState<'loading' | 'needSetup' | 'needPin' | 'authenticated'>('loading');
 
@@ -47,7 +48,7 @@ function App() {
 
   const handleSelectRecipe = (recipe: Recipe) => {
     setSelectedRecipe(recipe);
-    setActiveTab('detail');
+    setActiveModal('detail');
   };
 
   return (
@@ -56,22 +57,38 @@ function App() {
         <div className="min-h-screen bg-pixel-bg">
           <div className="max-w-2xl mx-auto border-x-4 border-pixel-border min-h-screen flex flex-col">
             <Header />
-            <TabNav
-              activeTab={activeTab}
-              onTabChange={setActiveTab}
-              hasSelectedRecipe={!!selectedRecipe}
-            />
-            <main className="flex-1 p-4">
-              {activeTab === 'fridge' && <FridgeView />}
-              {activeTab === 'recipes' && (
-                <RecipeSuggestionView onSelectRecipe={handleSelectRecipe} />
-              )}
-              {activeTab === 'detail' && selectedRecipe && (
-                <RecipeDetailView recipe={selectedRecipe} />
-              )}
+            <main className="flex-1">
+              <KitchenScene
+                onOpenFridge={() => setActiveModal('fridge')}
+                onOpenCounter={() => setActiveModal('recipes')}
+              />
             </main>
           </div>
         </div>
+
+        <KitchenModal
+          isOpen={activeModal === 'fridge'}
+          title="🧊 냉장고"
+          onClose={() => setActiveModal(null)}
+        >
+          <FridgeView />
+        </KitchenModal>
+
+        <KitchenModal
+          isOpen={activeModal === 'recipes'}
+          title="🍳 레시피 추천"
+          onClose={() => setActiveModal(null)}
+        >
+          <RecipeSuggestionView onSelectRecipe={handleSelectRecipe} />
+        </KitchenModal>
+
+        <KitchenModal
+          isOpen={activeModal === 'detail'}
+          title="📖 레시피 상세"
+          onClose={() => setActiveModal('recipes')}
+        >
+          {selectedRecipe && <RecipeDetailView recipe={selectedRecipe} />}
+        </KitchenModal>
       </RecipeProvider>
     </FridgeProvider>
   );
