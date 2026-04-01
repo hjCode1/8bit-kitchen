@@ -6,16 +6,19 @@ interface IngredientGridProps {
   onRemove: (id: string) => void;
 }
 
-const GRID_SIZE = 30;
+const MIN_SLOTS = 12;
 
 export default function IngredientGrid({ ingredients, onRemove }: IngredientGridProps) {
-  const slots = Array.from({ length: GRID_SIZE }, (_, i) => ingredients[i] || undefined);
+  const totalSlots = Math.max(MIN_SLOTS, ingredients.length + 6);
+  const slots = Array.from({ length: totalSlots }, (_, i) => ingredients[i] || undefined);
 
   return (
-    <div className="grid grid-cols-6 gap-1 bg-pixel-panel/30 border-4 border-pixel-border p-2">
-      {slots.map((ingredient, i) => (
-        <IngredientSlot key={ingredient?.id || `empty-${i}`} ingredient={ingredient} onRemove={onRemove} />
-      ))}
+    <div className="max-h-[60vh] overflow-y-auto border-4 border-pixel-border">
+      <div className="grid grid-cols-6 gap-1 bg-pixel-panel/30 p-2">
+        {slots.map((ingredient, i) => (
+          <IngredientSlot key={ingredient?.id || `empty-${i}`} ingredient={ingredient} onRemove={onRemove} />
+        ))}
+      </div>
     </div>
   );
 }
